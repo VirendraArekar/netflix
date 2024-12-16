@@ -14,6 +14,12 @@ app.use(cors());
 app.use(express.json());
 
 // Register routes
+
+app.use('/', (req, res)=>{
+  res.json({
+    message : "Api is Working"
+  })
+}); 
 app.use('/api/auth', authRoutes);
 app.use('/api/shows', showRoutes);  // Ensure this is registered
 
@@ -33,7 +39,7 @@ app.use((req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
