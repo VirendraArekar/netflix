@@ -13,15 +13,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Register routes
-
-app.use('/', (req, res)=>{
+// Register routes 
+app.use('/api/auth', authRoutes);
+app.use('/api/shows', showRoutes); 
+app.use('/home', (req, res)=>{
   res.json({
     message : "Api is Working"
   })
-}); 
-app.use('/api/auth', authRoutes);
-app.use('/api/shows', showRoutes);  // Ensure this is registered
+}); // Ensure this is registered
 
 // MongoDB Connection
 // Connect to MongoDB
